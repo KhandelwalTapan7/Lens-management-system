@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: eluno-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  ml-service:
+    build:
+      context: ./ml
+      dockerfile: Dockerfile
+    container_name: eluno-ml
+    ports:
+      - "8001:8001"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: eluno-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/eluno_orders
+      - ML_SERVICE_URL=http://ml-service:8001/predict
+    depends_on:
+      - mongo
+      - ml-service
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: eluno-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_PROXY_TARGET=http://backend:5000
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:

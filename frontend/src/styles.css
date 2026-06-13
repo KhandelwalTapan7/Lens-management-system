@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f9;
+  color: #1a1a2e;
+}
+
+.navbar {
+  background: #1a1a2e;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a.active,
+.navbar a:hover {
+  color: #fff;
+}
+
+.navbar .brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.container {
+  padding: 20px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.summary-card .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.summary-card.danger .value { color: #e63946; }
+.summary-card.warning .value { color: #f4a261; }
+.summary-card.ok .value { color: #2a9d8f; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f0f2f5;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+}
+
+.badge.breached { background: #e63946; }
+.badge.at-risk { background: #f4a261; }
+.badge.ok { background: #2a9d8f; }
+.badge.status { background: #457b9d; }
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filters select, .filters input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #457b9d;
+  color: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+button:hover {
+  background: #1a1a2e;
+}
+
+input, select, textarea {
+  font-size: 0.9rem;
+}
+
+form .field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+form .field label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
