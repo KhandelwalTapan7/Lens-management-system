@@ -61,6 +61,3 @@ npm run dev
 See `backend/.env` for required config: MongoDB URI, ML service URL, SMTP
 credentials (email alerts), Twilio credentials (WhatsApp alerts).
 
-## Docs
-- `docs/architecture-note.md` — AI models/APIs used and rationale (1-page).
-- `docs/demo-script.md` — 15-minute demo walkthrough script.
